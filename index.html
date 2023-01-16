@@ -81,6 +81,36 @@ Be careful when using x-html, as it can be a security risk if you allow user inp
 </p></div>
 <hr><hr>
 
+<h2>x-modelable</h2>
+<div>
+    <div x-data="{ message: 'Hello World' }">
+        <input x-modelable="message" type="text">
+        <p>{{ message }}</p>
+      </div>
+
+      <div id="x-modelable">
+        
+        In this example, the x-modelable directive is used on an input element, and it binds the input's value to the message data property in the Alpine.js component. As the user types into the input, the value of message is updated, and the text "Hello World" will be replaced by the user input in the "p" element.
+
+            You can also use x-modelable to bind a value to a property of an object.
+
+
+        
+
+      </div>
+
+      <div x-data="{ person: { name: 'John Doe' } }">
+        <input x-modelable="person.name" type="text">
+        <p>{{ person.name }}</p>
+      </div>
+
+      <div id="x-modelable2">
+        This is an example of how you can use the x-modelable directive to bind an input's value to the name property of an object called person. As the user types into the input, the value of person.name is updated, and the text "John Doe" will be replaced by the user input in the <p> element.
+      </div>
+      
+</div>
+<hr><hr>
+
 <h2>x-show</h2>
 
 <div>
@@ -260,6 +290,48 @@ Additionally, you can use x-if directive with a ternary operator or with a funct
   It can be useful if you want to use a standard HTML button and not an Alpine.js button and also you can use it to prevent certain elements on your page from being bound to JavaScript logic, while still being able to use the rest of Alpine.js's directives on other elements on the page.
 
 </div>
+<div id="divider">
+    <h1>THIS IS A GIANT DIVIDER BECAUSE - WHY NOT?</h1>
+</div>
+<hr><hr><hr><hr><hr><hr>
+
+<div>
+    <h2>$el magic stuff</h2>
+
+    <div x-data="{ show: true }">
+        <button x-on:click="$el.style.display = show ? 'block' : 'none'">Toggle</button>
+        <p x-bind:style="{ display: show ? 'block' : 'none' }" x-ref="myParagraph">
+          This is a paragraph that can be toggled using the $el magic variable.
+        </p>
+      </div>
+      
+
+     <div id="x-$el">
+        In this example, we have a button that when clicked, it toggles the display of the paragraph element by using the $el magic variable to access the DOM element and directly modify its style.display property.
+
+        We also have an x-ref directive on the paragraph element, which allows us to give it a reference name of myParagraph. This can be useful when you need to access the DOM element from JavaScript code, you can do this by accessing $refs.myParagraph.
+     </div>
+     <div id="x-$el2">
+        Here's an example of how to access the refs
+        <script>
+            const app =  Alpine.start();
+            console.log(app.$refs.myParagraph)
+         </script>
+         <div>
+            You can also use the $el magic variable in directives like x-on:mousemove to track mouse movement over the element, and in x-bind:class to toggle a class on the element based on some data property.
+         </div>
+
+         
+
+     </div>
+
+
+
+
+
+
+</div>
+
 </body>
 </html>
 
