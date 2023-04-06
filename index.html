@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <title>Document</title>
 </head>
 <body>
+
+  <div x-data="{ active: 0 }">
+    <nav class="navbar">
+      <ul class="main-list">
+        <li x-on:click="active = 0" :class="{ 'active': active === 0 }"> <button class="btn">Option 1</button>
+          <ul x-show="active === 0">
+            <li><button class="btn">Sub-option 1.1</button></li>
+            <li>Sub-option 1.2</li>
+          </ul>
+        </li>
+        <li x-on:click="active = 1" :class="{ 'active': active === 1 }"><button class="btn">Option 2</button>
+          <ul x-show="active === 1">
+            <li>Sub-option 2.1</li>
+            <li>Sub-option 2.2</li>
+          </ul>
+        </li>
+        <li x-on:click="active = 2" :class="{ 'active': active === 2 }"><button class="btn">Option 3</button>
+          <ul x-show="active === 2">
+            <li>Sub-option 3.1</li>
+            <li>Sub-option 3.2</li>
+          </ul>
+        </li>
+        <li x-on:click="active = 3" :class="{ 'active': active === 3 }"><button class="btn">Option 4</button>
+          <ul x-show="active === 3">
+            <li>Sub-option 4.1</li>
+            <li>Sub-option 4.2</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
+
+
+
+
+
+
+
     <h2>x-data and x-text with a little @click</h2>
     <div x-data="{ count: 0 }">
     <button @click="count++">Increment</button>
