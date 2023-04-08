@@ -1,388 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0022)http://127.0.0.1:5500/ -->
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <title>Document</title>
+    <script src="./alpine.js - how simple._files/cdn.min.js" defer=""></script>
+    <link rel="stylesheet" href="./alpine.js - how simple._files/styles.css">
+
+    <title>alpine.js - how simple.</title>
 </head>
 <body>
 
-  <div x-data="{ active: 0 }">
-    <nav class="navbar">
-      <ul class="main-list">
-        <li x-on:click="active = 0" :class="{ 'active': active === 0 }"> <button class="btn">Option 1</button>
-          <ul x-show="active === 0">
-            <li><button class="btn">Sub-option 1.1</button></li>
-            <li>Sub-option 1.2</li>
-          </ul>
-        </li>
-        <li x-on:click="active = 1" :class="{ 'active': active === 1 }"><button class="btn">Option 2</button>
-          <ul x-show="active === 1">
-            <li>Sub-option 2.1</li>
-            <li>Sub-option 2.2</li>
-          </ul>
-        </li>
-        <li x-on:click="active = 2" :class="{ 'active': active === 2 }"><button class="btn">Option 3</button>
-          <ul x-show="active === 2">
-            <li>Sub-option 3.1</li>
-            <li>Sub-option 3.2</li>
-          </ul>
-        </li>
-        <li x-on:click="active = 3" :class="{ 'active': active === 3 }"><button class="btn">Option 4</button>
-          <ul x-show="active === 3">
-            <li>Sub-option 4.1</li>
-            <li>Sub-option 4.2</li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  
+    <div class="container">
 
+        <div id="header_section" x-data="{  showMenu: false,
+                                            delayHideMenu: null,
+                                            counter: 0}">
 
+            <nav id="top_nav">
 
+                <ul class="menu_cat">
+                   
+                    <li class="top_level menu_item text-rose-900 font-bold">DIRECTIVES</li>
+                    <li class="top_level menu_item">MAGICS</li>
+                    <li class="top_level menu_item">GLOBALS</li>
+                    <li class="top_level menu_item">UI</li>
+                    <li class="top_level menu_item">WTF IS EVEN THIS?</li>
+                </ul>
 
+            </nav>
 
-
-
-    <h2>x-data and x-text with a little @click</h2>
-    <div x-data="{ count: 0 }">
-    <button @click="count++">Increment</button>
-    <button @click="count--">Decrement</button>
-    <p><span x-text="count"></span></p>
-    </div>
-
-    <div id="x-data">
-        <p>In this example, x-data is used to initialize the value of count to 0. The two buttons, "Increment" and "Decrement", have @click event listeners that increment and decrement the count value respectively. The current count value is then displayed in a paragraph using mustache syntax ({{ }}).
-
-            When the increment button is clicked, the count is incremented and the value is re-rendered in the browser. The same happens when the decrement button is clicked, the count is decremented and the value is re-rendered.
-            
-            This way, you can create a simple stateful component in the page, with no need of a framework. This is one of the ways that Alpine.js helps to simplify the JavaScript code in the pages.</p>
-    </div>
-    <hr><hr>
-
-    <h2>a bit more x-text</h2>
-    <div>
-        <div x-data="{ message: 'Hello World!' }">
-            <input type="text" x-model="message" x-text="message">
-            <p><span x-text="message"></span></p>
         </div>
-        
+
     </div>
 
-    <div id="x-text">
-        <p>In this example, x-data is used to initialize the value of message to "Hello World!". The input element has an x-model directive which binds the value of the input to the message data property. The x-text directive is used to set the text content of the element to the value of the message property.
+    <div class="main_section">
 
-            When the user types in the input, the text content of the element and the paragraph will change accordingly. The x-text directive allows you to bind the text content of an element directly to a data property, and it will update the text content whenever the value of the data property changes.
-            
-            This way you can create a simple two way data binding, with no need of a framework. This is one of the ways that Alpine.js helps to simplify the JavaScript code in the pages.</p>
-    </div>
-    <hr><hr>
+        classes - container, menu_cat, top_level, main_section, footer
+        <br>
+        ids - header_section, top_nav
 
-    <h2>some x-html</h2>
-    <div>
-        <div x-data="{ message: '<b>Hello World!</b>' }">
-            <div x-html="message"></div>
-            <textarea x-model="message"></textarea>
-        </div>
-        
     </div>
 
-    <div id="x-html">
-        <p>
-            In this example, x-data is used to initialize the value of message to "<b>Hello World!</b>". The div element has an x-html directive which binds the HTML content of the div to the message data property.
-
-The textarea element has an x-model directive which binds the value of the textarea to the message data property.
-
-When the user types in the textarea, the HTML content of the element will change accordingly. The x-html directive allows you to bind the HTML content of an element directly to a data property, and it will update the HTML content whenever the value of the data property changes.
-
-This way you can create a simple two way data binding, with no need of a framework. This is one of the ways that Alpine.js helps to simplify the JavaScript code in the pages.
-
-Be careful when using x-html, as it can be a security risk if you allow user input, as it can execute arbitrary JavaScript. If you need to render HTML from user input, you should sanitize it first, using a library like DOMPurify.
-        </p>
-    </div>
-<hr><hr>
-
-<h2>x-model demonstration</h2>
-
-<div>
-    <div x-data="{ message: 'Hello, World!' }">
-        <input x-model="message" type="text">
-        <p><span x-show="message"></span></p>
-      </div>
-      
-</div>
-
-<div id="x-model"><p>This example binds the value of the text input to the message variable in the Alpine.js x-data object. Whenever the value of the text input is updated, the value of the message variable will also be updated, and the text inside the "p" tag will change accordingly.
-
-</p></div>
-<hr><hr>
-
-<h2>x-modelable</h2>
-<div>
-    <div x-data="{ message: 'Hello World' }">
-        <input x-modelable="message" type="text">
-        <p>{{ message }}</p>
-      </div>
-
-      <div id="x-modelable">
-        
-        In this example, the x-modelable directive is used on an input element, and it binds the input's value to the message data property in the Alpine.js component. As the user types into the input, the value of message is updated, and the text "Hello World" will be replaced by the user input in the "p" element.
-
-            You can also use x-modelable to bind a value to a property of an object.
-
-
-        
-
-      </div>
-
-      <div x-data="{ person: { name: 'John Doe' } }">
-        <input x-modelable="person.name" type="text">
-        <p>{{ person.name }}</p>
-      </div>
-
-      <div id="x-modelable2">
-        This is an example of how you can use the x-modelable directive to bind an input's value to the name property of an object called person. As the user types into the input, the value of person.name is updated, and the text "John Doe" will be replaced by the user input in the <p> element.
-      </div>
-      
-</div>
-<hr><hr>
-
-<h2>x-show</h2>
-
-<div>
-    <div x-data="{ show: true }">
-        <button x-on:click="show = !show">Toggle</button>
-        <p x-hide="show">This element is hidden</p>
-      </div>
-
-      <div x-data="{ show: true }">
-        <button x-on:click="show = !show">Toggle</button>
-        <p x-show="show">This element is shown</p>
-      </div>
-
-      <div id="x-hide">
-        <p>
-            see x-show above
-        </p>
-      </div>
-
-</div>
-<hr><hr>
-
-<h2>x-for</h2>
-
-<div>
-    <div x-data="{ people: { 1: {name: 'John', age: 25}, 2: {name: 'Jane', age: 30} } }">
-        <ul>
-          <li x-for="person in people" x-bind:key="person.id">
-            <span x-text="person.name" x-show="person.name">name</span>
-            <span x-text="person.age">span</span>
-          </li>
-          in ul
-        </ul>
-    </div>
-    
-      
-</div>
-
-<div id="x-for">
-    It's important to note that when using x-for directive with an object, you need to use the x-bind:key directive to specify a unique key for each object element. This is to help Alpine.js keep track of the elements and to improve performance.
-
-Additionally, you can use x-for directive with a range of numbers and other variables like index and count of iterations, which you can find in the Alpine.js documentation.
-        
-        
-</div>
-<hr><hr>
-<h2>x-if</h2>
-<div>
-
-    <div x-data="{ showMessage: true }">
-        <button x-on:click="showMessage = !showMessage">Toggle</button>
-        <p x-if="showMessage">This message is visible</p>
-      </div>
-
-      <hr>
-
-      <div id="x-if">
-
-        In this example, the x-if directive is used on the <p> element to conditionally render it based on the value of the showMessage variable in the x-data object. When the showMessage variable is true, the <p> element will be visible, and when the showMessage variable is false, the <p> element will not be rendered in the DOM at all.
-
-            You can also use x-else directive to show an alternate element when the condition is not met.
-
-      </div>
-
-      <div x-data="{ showMessage: true }">
-        <button x-on:click="showMessage = !showMessage">Toggle</button>
-        <p x-if="showMessage">This message is visible</p>
-        <p x-else>This message is hidden</p>
-      </div>
-
-      <div id="x-if2">
-      It's important to note that when an element is not rendered in the DOM with x-if, it's not just hidden but also it's not in the DOM tree, which means that it will not receive any updates from Alpine.js and it will not consume any memory or resources.
-
-The x-if directive can be used to conditionally render any element, including other directives like x-for and x-model.
-
-Additionally, you can use x-if directive with a ternary operator or with a function call.
-</div>
-
-<div x-data="{ showMessage: true, show: true }">
-    <button x-on:click="showMessage = !showMessage">Toggle</button>
-    <p x-if="show ? showMessage : !showMessage">This message is visible</p>
-  </div>
-
-  <div x-data="{ showMessage: true, check:()=>true }">
-    <button x-on:click="showMessage = !showMessage">Toggle</button>
-    <p x-if="check()">This message is visible</p>
-  </div>
-  
-      
-
-</div>
-
-<hr><hr>
-
-<h2>x-init</h2>
-<div>
-    <div x-init="console.log('I\'m being initialized! in x-init')">in this div is an x-init directive</div>
-
-    <div x-data="{ message: 'Hello, World!' }">
-        <p x-text="message"></p>
-        <button x-on:click="message = 'Hello, Alpine.js!'" >Click me</button>
-      </div>
-
-      <div id="x-init">
-        This code creates a div with an initial data property of "message" set to "Hello, World!". Inside the div, there is a paragraph tag that displays the value of "message" using the x-text directive, and a button that, when clicked, updates the value of "message" to "Hello, Alpine.js!" using the x-on:click directive.
-      </div>
-
-</div>
-
-<hr><hr>
-
-<h2>x-effect</h2>
-
-<div id="x-effect">
-
-    <div x-data="{ show: true }">
-        <button x-on:click="show = !show">Toggle</button>
-        <p x-show="show" x-effect:fade-in="show" x-effect:fade-out="!show">
-          This text will fade in and out when the button is clicked.
-        </p>
-      </div>
-      This code creates a div with an initial data property of "show" set to "true". Inside the div, there is a button that, when clicked, toggle the value of "show" between true and false using x-on:click directive.
-      
-      There's also a paragraph tag that is displayed or hidden based on the value of "show" using x-show directive. The x-effect:fade-in directive causes the element to fade in when "show" is true and x-effect:fade-out causes the element to fade out when "show" is false.
-
-</div>
-
-<hr><hr>
-
-<h2>x-ref</h2>
-
-<div id="x-ref">
-
-    <div x-data="{}">
-        <input x-ref="name" type="text">
-        <button x-on:click="console.log( $refs.name.value )">Submit</button>
-      </div>
-      This code creates a div with an input field and a button. The input field has a x-ref directive with a value of "name", which sets a reference to the input element, allowing it to be accessed in JavaScript.
-      
-      When the button is clicked, the x-on:click directive calls a JavaScript function that logs the value of the input field to the console by using $refs.name.value. So, when a user types something in the input field, and clicks on the button, it will output the value of the input field in the browser console.
-</div>
-
-<hr><hr>
-
-<h2>x-cloak</h2>
-<div>
-    <div x-cloak>
-        <p>This content will be hidden until Alpine.js is loaded and initialized.</p>
-      </div>
-      The x-cloak directive is used to hide an element until Alpine.js is fully loaded and initialized.
-      
-      In the example above, the div container has the x-cloak directive and it wraps around a paragraph. When the page loads, this div will be hidden, and once Alpine.js is loaded and initialized, the div will be displayed and the content inside it will be visible.
-      
-      It's worth mentioning that in order for x-cloak to work, you need to add a css class in your css file with the following rule:
-      
-      [x-cloak] {
-        display : none;
-      }
-
-
-
-</div>
-
-<hr><hr>
-<h2>x-ignore</h2>
-
-<div x-data="{ count: 0 }">
-    <button x-ignore x-on:click="count++">Increment</button>
-    <p x-text="count"></p>
-  </div>
-
-  <div id="x-ignore">
-  This code creates a div with an initial data property of "count" set to 0. Inside the div, there is a button with the x-ignore directive and an x-on:click directive that increments the value of "count" by 1 each time it is clicked. And a paragraph tag that displays the value of "count" using the x-text directive.
-  
-  The x-ignore directive is used to prevent Alpine.js from initializing the element, which means the button will not be bound to any JavaScript logic, and any x-on:* directives on it will be ignored. So, in this case, the button will not increment the count and will act as a regular button.
-  
-  It can be useful if you want to use a standard HTML button and not an Alpine.js button and also you can use it to prevent certain elements on your page from being bound to JavaScript logic, while still being able to use the rest of Alpine.js's directives on other elements on the page.
-
-</div>
-<div id="divider">
-    <h1>THIS IS A GIANT DIVIDER BECAUSE - WHY NOT?</h1>
-</div>
-<hr><hr><hr><hr><hr><hr>
-
-<div>
-    <h2>$el magic stuff</h2>
-
-    <div x-data="{ show: true }">
-        <button x-on:click="$el.style.display = show ? 'block' : 'none'">Toggle</button>
-        <p x-bind:style="{ display: show ? 'block' : 'none' }" x-ref="myParagraph">
-          This is a paragraph that can be toggled using the $el magic variable.
-        </p>
-      </div>
-      
-
-     <div id="x-$el">
-        In this example, we have a button that when clicked, it toggles the display of the paragraph element by using the $el magic variable to access the DOM element and directly modify its style.display property.
-
-        We also have an x-ref directive on the paragraph element, which allows us to give it a reference name of myParagraph. This can be useful when you need to access the DOM element from JavaScript code, you can do this by accessing $refs.myParagraph.
-     </div>
-     <div id="x-$el2">
-        Here's an example of how to access the refs
-        <script>
-            const app =  Alpine.start();
-            console.log(app.$refs.myParagraph)
-         </script>
-         <div>
-            You can also use the $el magic variable in directives like x-on:mousemove to track mouse movement over the element, and in x-bind:class to toggle a class on the element based on some data property.
-         </div>
-
-         
-
-     </div>
-
-
-
-
-
-
-</div>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="footer">FOOTER</div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
