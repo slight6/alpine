@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+
+}
+
+* {
+
+}
+
+body {
+
+}
+
+.navbar {
+    background-color: #ddd;
+
+}
+
+.navbar li {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    background-color: #ddd;
+
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.main-list {
+    background-color: #ddd;
+
+}
