@@ -1,86 +1,164 @@
 <!DOCTYPE html>
-<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="./styles.css">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./styles.css">
+	<script src="./cleave.js" defer></script>
+	<script src="./script.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+	<title>Alpine.js - so simple</title>
 
-    <title>alpine.js - how simple.</title>
 </head>
 <body>
-    <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
 
-    <div class="container">
+	<div class="container">
 
-        <div id="header_section" x-data="{  showMenu: false,
-                                            delayHideMenu: null,
-                                            counter: 0}">
+		<!-- Header Section -->
 
-            <nav id="top_nav">
+		<div class="header_section" x-data="{ state: 0 }">
 
-                <ul class="menu_cat">
-                   
-                    <li class="top_level menu_item text-rose-900 font-bold">DIRECTIVES</li>
-                    <li class="top_level menu_item">MAGICS</li>
-                    <li class="top_level menu_item">GLOBALS</li>
-                    <li class="top_level menu_item">UI</li>
-                    <li class="top_level menu_item">WTF IS EVEN THIS?</li>
-                </ul>
+			<div class="left_logo">
 
-            </nav>
+			</div>
 
-        </div>
+			<div class="center_menu">
+				
+			</div>
 
-    </div>
+			<div class="login_box">
 
-    <div class="main_section">
+			</div>
+		
+		</div>
 
-        classes - container, menu_cat, top_level, main_section, footer
-        <br>
-        ids - header_section, top_nav
+		<!-- End Header -->
+		<!-- Main Section -->
 
-    </div>
+		<div class="left_menu">
 
-    <div class="footer">FOOTER</div>
+			<ul>
 
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+			
+			</ul>
 
-</body></html>
+		</div>
+
+		<div class="main_section">
+
+			<div id="x-data-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-DATA INFO HERE</span>
+			</div>
+
+			<div id="at-click-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER @CLICK INFO HERE</span>
+			</div>
+
+			<div id="x-text-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-TEXT INFO HERE</span>
+			</div>
+
+			<div id="x-show-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-SHOW INFO HERE</span>
+			</div>
+
+			<div id="x-model-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-MODEL INFO HERE</span>
+			</div>
+
+			<div id="x-bind-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-BIND INFO HERE</span>
+			</div>
+
+			<div id="x-for-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-FOR INFO HERE</span>
+			</div>
+
+			<div id="x-if-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-IF INFO HERE</span>
+			</div>
+
+			<div id="x-on-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-ON INFO HERE</span>
+			</div>
+
+			<div id="x-transition-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-TRANSITION INFO HERE</span>
+			</div>
+
+			<div id="x-html-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-HTML INFO HERE</span>
+			</div>
+
+			<div id="x-cloak-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-CLOAK INFO HERE</span>
+			</div>
+
+			<div id="x-ref-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-REF INFO HERE</span>
+			</div>
+
+			<div id="x-modelable-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-MODELABLE INFO HERE</span>
+			</div>
+
+			<div id="x-hide-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-HIDE INFO HERE</span>
+			</div>
+			
+			<div id="x-init-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-INIT INFO HERE</span>
+			</div>
+
+			<div id="x-effect-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-EFFECT INFO HERE</span>
+			</div>
+
+			<div id="x-ignore-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-IGNORE INFO HERE</span>
+			</div>
+
+			<div id="x-teleport-info" class="card" x-data="{ status : inactive }">
+				<span x-show="false">ENTER X-TELEPORT INFO HERE</span>
+			</div>
+
+			<hr />
+
+			The magics of alpine.js all begin with a $ and are 
+
+			<ul>
+				<li>el</li>
+				<li>refs</li>
+				<li>store</li>
+				<li>watch</li>
+				<li>dispatch</li>
+				<li>nextTick</li>
+				<li>root</li>
+				<li>data</li>
+				<li>id</li>
+			</ul>
+
+			There are also globals such as Alpine.data(), Alpine.store(), and Alpine.bind()
+
+			<hr />
+
+			
+			
+
+
+
+		</div>
+
+		<!-- End Main Section-->
+		<!-- Footer Section -->
+
+		<!-- Scrolling Banner -->
+
+		<!-- End Footer Section -->
+
+	</div>
+	
+</body>
+
+</html>
